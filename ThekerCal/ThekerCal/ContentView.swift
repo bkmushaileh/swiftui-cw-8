@@ -10,18 +10,30 @@ import SwiftUI
 struct ContentView: View {
     @State var counter = [0, 0, 0]
     var body: some View {
+        ZStack{
+            Image("background")
+                .ignoresSafeArea()
+                
+                
         VStack(alignment: .trailing){
+            Text("حاسبة الاذكار")
+                .font(.largeTitle)
+               
+                .padding()
             ThekerView(counter: $counter[0], label: "استغفرالله", color: .red)
             ThekerView(counter: $counter[1], label: "سبحان الله وبحمده", color: .blue)
             ThekerView(counter: $counter[2], label: "الحمدلله", color: .orange)
             
+        }.foregroundColor(.white)
         }
     }
+        
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .previewDevice("iPhone 12")
     }
 }
 
